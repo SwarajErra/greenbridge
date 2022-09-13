@@ -17,7 +17,7 @@ public class Farmer {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer id;
+	private Integer farmerId;
 	private String firstName;
 	private String lastName;
 	private Integer age;
@@ -45,12 +45,12 @@ public Farmer(String firstName, String lastName, Integer age, String gender, Str
 
 
 public Integer getId() {
-	return id;
+	return farmerId;
 }
 
 
 public void setId(Integer id) {
-	this.id = id;
+	this.farmerId = id;
 }
 
 
@@ -112,6 +112,17 @@ public String getMobileNumber() {
 public void setMobileNumber(String mobileNumber) {
 	this.mobileNumber = mobileNumber;
 }
+
+
+public List<Crop> getCrops() {
+	return crops;
+}
+
+
+public void setCrops(List<Crop> crops) {
+	this.crops = crops;
+}
+
 
 
    
