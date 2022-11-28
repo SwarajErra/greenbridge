@@ -2,14 +2,7 @@ package com.greenbridge.entity;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "farmers")
@@ -27,6 +20,8 @@ public class Farmer {
 	
 	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy = "farmer")
 	private List<Crop> crops;
+	@ManyToMany(cascade = CascadeType.ALL,mappedBy = "farmer")
+	private List<Role> role;
 	
 	
    public Farmer() {

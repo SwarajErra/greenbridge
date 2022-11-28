@@ -8,6 +8,6 @@ import com.greenbridge.entity.Farmer;
 
 public interface FarmerRepository extends JpaRepository<Farmer, Integer> {
 	
-	public Farmer findByfarmerId(Integer id);
+	 Farmer findByfarmerId(Integer id);
 
 }
