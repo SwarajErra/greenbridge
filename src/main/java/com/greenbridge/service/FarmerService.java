@@ -1,19 +1,22 @@
 package com.greenbridge.service;
 
+import com.greenbridge.entity.Farmer;
+import com.greenbridge.payload.FarmerDTO;
+import com.greenbridge.payload.FarmerResponse;
+
 import java.util.List;
 
-import com.greenbridge.entity.Crop;
-import com.greenbridge.entity.Farmer;
-
 public interface FarmerService {
-	
+
 	//creating Farmer
-	public Farmer createFarmer(Farmer farmer, List<Crop> cropList) throws Exception;
+	public FarmerDTO createFarmer(FarmerDTO farmerDTO) throws Exception;
 	//get Farmer
-	
-	public Farmer getFarmerbyId(Integer integer) throws Exception;
-	
+	public FarmerDTO updateFarmer(FarmerDTO farmerDTO,Integer farmerID) throws Exception;
+	public FarmerDTO getFarmerbyId(Integer integer) throws Exception;
+	public FarmerResponse getAllFarmers(Integer pageNumber, Integer pageSize,String sortBy,String sortDir) throws Exception;
 	//delete farmer
 	public void deleteFarmerById(Integer integer);
+	//search
+	public List<FarmerDTO> searchFarmers(String firstName);
 
 }

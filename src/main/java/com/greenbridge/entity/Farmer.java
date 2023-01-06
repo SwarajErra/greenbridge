@@ -1,126 +1,44 @@
 package com.greenbridge.entity;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.util.List;
 
 import javax.persistence.*;
 
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
 @Table(name = "farmers")
 public class Farmer {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer farmerId;
-	private String firstName;
-	private String lastName;
-	private Integer age;
-	private String gender;
-	private String password;
-	private String mobileNumber;
-	
-	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy = "farmer")
-	private List<Crop> crops;
-	@ManyToMany(cascade = CascadeType.ALL,mappedBy = "farmer")
-	private List<Role> role;
-	
-	
-   public Farmer() {
-	   
-   }
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer farmerId;
+    private String firstName;
+    private String lastName;
+    private String userName;
+    private Integer age;
+    private String gender;
+    private String password;
+    private String mobileNumber;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "farmer")
+    private List<Crop> crops;
+    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "farmer")
+    private List<Role> role;
 
 
-public Farmer(String firstName, String lastName, Integer age, String gender, String password, String mobileNumber) {
-	this.firstName = firstName;
-	this.lastName = lastName;
-	this.age = age;
-	this.gender = gender;
-	this.password = password;
-	this.mobileNumber = mobileNumber;
-}
-
-
-public Integer getId() {
-	return farmerId;
-}
-
-
-public void setId(Integer id) {
-	this.farmerId = id;
-}
-
-
-public String getFirstName() {
-	return firstName;
-}
-
-
-public void setFirstName(String firstName) {
-	this.firstName = firstName;
-}
-
-
-public String getLastName() {
-	return lastName;
-}
-
-
-public void setLastName(String lastName) {
-	this.lastName = lastName;
-}
-
-
-public Integer getAge() {
-	return age;
-}
-
-
-public void setAge(Integer age) {
-	this.age = age;
-}
-
-
-public String getGender() {
-	return gender;
-}
-
-
-public void setGender(String gender) {
-	this.gender = gender;
-}
-
-
-public String getPassword() {
-	return password;
-}
-
-
-public void setPassword(String password) {
-	this.password = password;
-}
-
-
-public String getMobileNumber() {
-	return mobileNumber;
-}
-
-
-public void setMobileNumber(String mobileNumber) {
-	this.mobileNumber = mobileNumber;
-}
-
-
-public List<Crop> getCrops() {
-	return crops;
-}
-
-
-public void setCrops(List<Crop> crops) {
-	this.crops = crops;
-}
-
-
-
-   
-   
-
+    public Farmer(String firstName, String lastName, Integer age, String gender, String password, String mobileNumber, String userName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.userName = userName;
+        this.age = age;
+        this.gender = gender;
+        this.password = password;
+        this.mobileNumber = mobileNumber;
+    }
 }
